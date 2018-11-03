@@ -1,0 +1,5 @@
+http://go.microsoft.com/fwlink/?LinkId=691126&amp;fixForIE=.exe.
+
+pip install python-rtmidi
+
+pip install mido

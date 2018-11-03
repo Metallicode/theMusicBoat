@@ -1,0 +1,140 @@
+﻿body {
+}
+
+#Title{
+
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    font-family:monospace;
+    font-size:5em;
+    margin-top:-5px;
+    
+}
+
+#SiteSection{
+
+    margin-left:5px;
+    margin-right:5px;
+
+}
+
+#EnterString{
+    position:relative;
+    top:-6px;
+
+}
+
+#pitchSliders{
+
+    border: solid black 2px;
+      text-align:center;
+}
+
+#reverbBtn{
+
+    position:relative;
+    top:400px;
+
+}
+
+#delayBtn{
+
+    position:relative;
+    top:400px;
+
+}
+
+#SynthParams{
+    position:relative;
+    top:-70px;
+}
+
+#FilterCutoff{
+        position:relative;
+           transform: rotate(180deg);
+    top:290px;
+    width:600px;
+}
+
+#FilterCutoffLbl{
+        position:relative;
+    top:300px;
+}
+
+.PitchFader{
+
+    transform: rotate(270deg);
+    position: absolute;
+    top:120px;
+    z-index:10;
+    left:-2px;
+}
+
+.Flat{
+
+    background-color:black;
+    color:white;
+
+}
+
+#txtWidg{
+
+   position: absolute;
+   top:220px;
+   margin-left:10px;
+
+}
+
+#txtBoxComposer{
+
+
+    width:300px;
+    height:100px;
+}
+
+.img-responsive{
+   position: absolute;
+   top:220px;
+   width: 240px;
+   height:120px;
+   padding:15px;
+     background-repeat: no-repeat;
+     margin-right:10px;
+     left:-5px;
+}
+
+#sinPic {
+   background-image: url('../images/sin.jpg');
+}
+#sawPic {
+    background-image: url('../images/saw.jpg');
+}
+#triPic {
+    background-image: url('../images/tri.jpg');
+}
+#pulsePic {
+    background-image: url('../images/pulse.jpg');
+}
+
+#sinPic:hover {
+   background-image: url('../images/sinActive.jpg');
+}
+#sawPic:hover {
+    background-image: url('../images/sawActive.jpg');
+}
+#triPic:hover {
+    background-image: url('../images/triActive.jpg');
+}
+#pulsePic:hover {
+    background-image: url('../images/pulseActive.jpg');
+}
+
+
+#myMarquee{
+
+   position: relative;
+   top:270px;
+   font-family:monospace;
+   font-size:2.4em;
+}

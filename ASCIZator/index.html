@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Assets/bootstrap.min.css" rel="stylesheet" />
+    <link href="Assets/kybordCss.css" rel="stylesheet" />
+</head>
+<body onload="initialFunction()">
+    <div class="row">
+
+        <h1 id="Title">
+
+             < ASCI-Zator/> 
+
+        </h1>
+
+
+    </div>
+
+    <div id="SiteSection">
+
+        <div id="pitchSliders">
+            <div class="row">
+
+                <div class="col-md-1">
+                    <h2>C</h2>
+                    <input class="PitchFader" name="C" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1 Flat">
+                    <h2>C#</h2>
+                    <input class="PitchFader" name="C#" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1">
+                    <h2>D</h2>
+                    <input class="PitchFader" name="D" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1 Flat">
+                    <h2>D#</h2>
+                    <input class="PitchFader" name="D#" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1">
+                    <h2>E</h2>
+                    <input class="PitchFader" name="E" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1">
+                    <h2>F</h2>
+                    <input class="PitchFader" name="F" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1 Flat">
+                    <h2>F#</h2>
+                    <input class="PitchFader" name="F#" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1">
+                    <h2>G</h2>
+                    <input class="PitchFader" name="G" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1 Flat">
+                    <h2>G#</h2>
+                    <input class="PitchFader" name="G#" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1">
+                    <h2>A</h2>
+                    <input class="PitchFader" name="A" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1 Flat">
+                    <h2>A#</h2>
+                    <input class="PitchFader" name="A#" type="range" min="-50" max="50" />
+
+                </div>
+
+                <div class="col-md-1">
+                    <h2>B</h2>
+                    <input class="PitchFader" name="B" type="range" min="-50" max="50" />
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row" id="SynthParams">
+            <div class="col-md-4">
+                <div id="txtWidg">
+                    <textarea id="txtBoxComposer"></textarea>
+                    <input id="EnterString" type="button" onclick="EnterString()" value="Play ASCI" />
+                    <div>
+                        <code>
+                            BPM: <pre id="BPMCounter"> 300 </pre>
+                        </code>
+                    </div>
+                    <input id="SpeedSld" type="range" min="60" max="1000" value="300" />
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="WaveForms">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!--<img class="img-responsive" src="images/sin.jpg" />-->
+                            <div id="sinPic" class="img-responsive">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!--<img class="img-responsive" src="images/saw.jpg" />-->
+                            <div id="sawPic" class="img-responsive">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!--<img class="img-responsive" src="images/tri.jpg" />-->
+                            <div id="triPic" class="img-responsive">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!--<img class="img-responsive" src="images/pulse.jpg" />-->
+                            <div id="pulsePic" class="img-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input id="reverbBtn" type="button" value="Reverb" />
+                    <input id="delayBtn" type="button" value="Delay" />
+
+                    <h3 id="FilterCutoffLbl">Filter</h3>
+                    <input id="FilterCutoff" type="range" min="40" max="2000" step="1" />
+                </div>
+            </div>
+
+        </div>
+
+
+        <div>
+            <marquee id="myMarquee" scrolldelay="90"></marquee>
+        </div>
+
+    </div>
+
+
+    <script src="Scripts/jquery-1.12.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/three.min.js"></script>
+    <script src="Scripts/timbre.js"></script>
+    <script src="Scripts/keyboard.js"></script>
+    <script src="Scripts/SiteJS.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿body {
+}
+
+#drag-1, #drag-2, #drag-3 {
+  width: 5px;
+  height: 5px;
+  margin: 10%;
+
+  background-color: #29e;
+  color: white;
+
+  border-radius: 3em;
+  padding: 4%;
+
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+}
+
+#drag-me::before {
+  content: "#" attr(id);
+  font-weight: bold;
+}
+
+#myMainDiv{
+    background-color:forestgreen;
+}
+
+.sequenserHolder{
+        background-color:dimgrey;
+        height:100px;
+            padding-top:10px;
+}
+
+.seqStep{
+
+    background-color:dodgerblue;
+    width:10%;
+    margin:10px;
+    float:left;
+    height:50px;
+
+}
+.sequenserHolder2{
+        background-color:yellow;
+        height:100px;
+            padding-top:10px;
+}
+
+.seqStep2{
+
+    background-color:dimgray;
+    width:10%;
+    margin:10px;
+    float:left;
+    height:50px;
+    border-radius:30px;
+    border:solid black 5px;
+}
+
+#playBtn{
+    width:100%;
+}
+#playBtn2{
+    width:100%;
+}
+#FilterHolder{
+
+    background-color:coral;
+    border-radius:20px;
+    padding:30px;
+    margin:30px;
+}
