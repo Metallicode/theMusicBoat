@@ -1,0 +1,181 @@
+﻿#synthBody {
+    padding: 10px;
+    background-image: url("boatsynthskin.png");
+    width: 1000px;
+    height: 500px;
+    border: black solid 3px;
+}
+
+#synthBody button {
+        position: absolute;
+        background-color: #fff700;
+        border: none;
+        outline: none;
+        padding: 3px;
+        border-radius: 3px;
+    }
+
+    #synthBody button:active {
+        position: absolute;
+        background-color: #161616;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    #synthBody input[type=range] {
+        position: absolute;
+        -webkit-appearance: slider-vertical;
+        height: 70px;
+        width: 40px;
+        outline: none;
+    }
+
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #161616;
+}
+
+
+
+
+
+#osc_a_oct_btn {
+    left: 85px;
+    top: 187px;
+}
+
+#osc_a_shape_btn {
+    left: 75px;
+    top: 212px;
+}
+
+
+#osc_a_vol_sld {
+    left: 75px;
+    top: 110px;
+}
+
+#osc_b_oct_btn {
+    left: 165px;
+    top: 187px;
+}
+
+#osc_b_shape_btn {
+    left: 155px;
+    top: 212px;
+}
+
+
+#osc_b_vol_sld {
+    left: 155px;
+    top: 110px;
+}
+
+#osc_sub_vol_sld {
+    left: 240px;
+    top: 110px;
+}
+
+#osc_detune_sld {
+    left: 350px;
+    top: 110px;
+}
+
+
+#osc_pitch_env_sld {
+    left: 460px;
+    top: 110px;
+}
+
+
+#osc_pitch_env_atk_sld {
+    left: 520px;
+    top: 110px;
+}
+
+#osc_pitch_env_dcy_sld {
+    left: 580px;
+    top: 110px;
+}
+
+#amp_attack_sld {
+    left: 770px;
+    top: 110px;
+}
+
+#amp_decay_sld {
+    left: 880px;
+    top: 110px;
+}
+
+#filter_cut_sld {
+    left: 75px;
+    top: 300px;
+}
+
+#filter_q_sld {
+    left: 155px;
+    top: 300px;
+}
+
+#filter_env_sld {
+    left: 400px;
+    top: 300px;
+}
+
+
+#filter_env_atk_sld {
+    left: 490px;
+    top: 300px;
+}
+
+#filter_dcy_sld {
+    left: 580px;
+    top: 300px;
+}
+
+
+#output_dist_sld {
+    left: 750px;
+    top: 300px;
+}
+
+#output_comp_atk_sld {
+    left: 830px;
+    top: 300px;
+}
+
+#output_vol_sld {
+    left: 910px;
+    top: 300px;
+}
+
+
+.seqSteps {
+    width: 90px;
+    font-size:1.6em;
+}
+
+
+#seq_steps {
+    position:absolute;
+    width:900px;
+    left:45px;
+    top: 455px;
+}
+
+#speed_sld {
+    left: 840px;
+    top: 436px;
+}
+
+#transport_btn {
+    left: 905px;
+    top: 455px;
+    height: 38px;
+    width: 70px;
+}
+
+
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="StyleSheet.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="synthDiv">
+
+        <div id="synthBody">
+
+            <div id="osc_section">
+
+                <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_a_vol_sld" />
+                <button id="osc_a_oct_btn"><strong>oct</strong></button>
+                <button id="osc_a_shape_btn"><strong>shape</strong></button>
+
+                <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_b_vol_sld" />
+                <button id="osc_b_oct_btn"><strong>oct</strong></button>
+                <button id="osc_b_shape_btn"><strong>shape</strong></button>
+
+                <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_sub_vol_sld" />
+
+                <input class="synthSld" type="range" min="0.1" value="0" step="1" max="100" id="osc_detune_sld" />
+
+                <input class="synthSld" type="range" id="osc_pitch_env_sld" />
+                <input class="synthSld" type="range" id="osc_pitch_env_atk_sld" />
+                <input class="synthSld" type="range" id="osc_pitch_env_dcy_sld" />
+            </div>
+
+            <div id="amp_section">
+
+                <input class="synthSld" type="range" id="amp_attack_sld" />
+
+                <input class="synthSld" type="range" id="amp_decay_sld" />
+
+            </div>
+
+
+            <div id="filter_section">
+
+
+                <input class="synthSld" type="range" id="filter_cut_sld" />
+
+                <input class="synthSld" type="range" id="filter_q_sld" />
+
+                <input class="synthSld" type="range" id="filter_env_sld" />
+                <input class="synthSld" type="range" id="filter_env_atk_sld" />
+                <input class="synthSld" type="range" id="filter_dcy_sld" />
+
+
+            </div>
+
+
+            <div id="output_section">
+
+
+                <input class="synthSld" type="range" id="output_dist_sld" />
+                <input class="synthSld" type="range" id="output_comp_atk_sld" />
+                <input class="synthSld" type="range" id="output_vol_sld" />
+            </div>
+
+            <div id="seq_section">
+                <div id="seq_steps">
+                    <input id="seq_step_1" placeholder="0" class="seqSteps" step-data="0" type="number" />
+                    <input id="seq_step_2" placeholder="0" class="seqSteps" step-data="1" type="number" />
+                    <input id="seq_step_3" placeholder="0" class="seqSteps" step-data="2" type="number" />
+                    <input id="seq_step_4" placeholder="0" class="seqSteps" step-data="3" type="number" />
+                    <input id="seq_step_5" placeholder="0" class="seqSteps" step-data="4" type="number" />
+                    <input id="seq_step_6" placeholder="0" class="seqSteps" step-data="5" type="number" />
+                    <input id="seq_step_7" placeholder="0" class="seqSteps" step-data="6" type="number" />
+                    <input id="seq_step_8" placeholder="0" class="seqSteps" step-data="7" type="number" />
+                </div>
+
+                <input type="range" id="speed_sld" min="20" max="400" step="1" />
+
+                <button id="transport_btn">Start</button>
+
+            </div>
+
+
+        </div>
+
+        <button id="allowAudio">ok</button>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <script src="BoatsynthScript.js"></script>
+
+</body>
+</html>
