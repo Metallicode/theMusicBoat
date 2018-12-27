@@ -15,51 +15,59 @@
 
                 <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_a_vol_sld" />
                 <button id="osc_a_oct_btn"><strong>oct</strong></button>
-                <button id="osc_a_shape_btn"><strong>shape</strong></button>
+                <button class="shapeBtn" id="osc_a_shape_btn"><strong>shape</strong></button>
 
                 <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_b_vol_sld" />
                 <button id="osc_b_oct_btn"><strong>oct</strong></button>
-                <button id="osc_b_shape_btn"><strong>shape</strong></button>
+                <button class="shapeBtn" id="osc_b_shape_btn"><strong>shape</strong></button>
 
                 <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_sub_vol_sld" />
 
-                <input class="synthSld" type="range" min="0.1" value="0" step="1" max="100" id="osc_detune_sld" />
+                <input class="synthSld" type="range" min="0.1" value="0" step="0.01" max="10" id="osc_detune_sld" />
 
-                <input class="synthSld" type="range" id="osc_pitch_env_sld" />
-                <input class="synthSld" type="range" id="osc_pitch_env_atk_sld" />
-                <input class="synthSld" type="range" id="osc_pitch_env_dcy_sld" />
+                <input class="synthSld" type="range" min="0.001" value="1.0" step="0.001" max="3" id="osc_pitch_env_sld" list="tickmarks" />
+                <datalist id="tickmarks">
+                    <option value="1">
+
+                </datalist>
+
+
+                <input class="synthSld" type="range" min="0" value="0" step="0.001" max="0.1" id="osc_pitch_env_atk_sld" />
+                <input class="synthSld" type="range" min="0.1" value="0.69" step="0.001" max="0.69" id="osc_pitch_env_dcy_sld" />
             </div>
 
             <div id="amp_section">
 
-                <input class="synthSld" type="range" id="amp_attack_sld" />
+                <input class="synthSld" min="0" value="0" step="0.001" max="0.5" type="range" id="amp_attack_sld" />
 
-                <input class="synthSld" type="range" id="amp_decay_sld" />
+                <input class="synthSld" min="0.1" value="0.69" step="0.001" max="0.69" type="range" id="amp_decay_sld" />
 
             </div>
-
 
             <div id="filter_section">
 
 
-                <input class="synthSld" type="range" id="filter_cut_sld" />
+                <input class="synthSld" type="range" min="0.0001" max="6000" value="6000" id="filter_cut_sld" />
 
-                <input class="synthSld" type="range" id="filter_q_sld" />
+                <input class="synthSld" type="range" min="0.0001" step="0.01" max="30" value="0" id="filter_q_sld" />
 
-                <input class="synthSld" type="range" id="filter_env_sld" />
-                <input class="synthSld" type="range" id="filter_env_atk_sld" />
-                <input class="synthSld" type="range" id="filter_dcy_sld" />
+                <input class="synthSld" type="range" min="0.001" value="1.0" step="0.001" max="3" id="filter_env_sld" list="tickmarks2"/>
+                <datalist id="tickmarks2">
+                    <option value="1">
 
+                </datalist>
+
+
+                <input class="synthSld" type="range" min="0" value="0" step="0.001" max="0.5" id="filter_env_atk_sld" />
+                <input class="synthSld" type="range" min="0.1" value="0.69" step="0.001" max="0.69" id="filter_dcy_sld" />
 
             </div>
 
-
             <div id="output_section">
 
-
-                <input class="synthSld" type="range" id="output_dist_sld" />
-                <input class="synthSld" type="range" id="output_comp_atk_sld" />
-                <input class="synthSld" type="range" id="output_vol_sld" />
+                <input class="synthSld" type="range"  min="1" value="1" step="0.1" max="10" id="output_dist_sld" />
+                <input class="synthSld" min="-50" value="-1" step="1" max="-1" type="range" id="output_comp_atk_sld" />
+                <input class="synthSld" min="0.0" value="0.3" step="0.001" max="0.3" type="range" id="output_vol_sld" />
             </div>
 
             <div id="seq_section">
