@@ -2,7 +2,7 @@
 
     var isPlaying = false;
     var boatInterval = null;
-    var seqSpeed = 1000;
+    var seqSpeed = 500;
     var seqArray = [0, 0, 0, 0, 0, 0, 0, 0];
     var currentStep = 0;
 
@@ -15,6 +15,9 @@
     var waveformz = ["sine", "square", "sawtooth", "triangle"];
     var osc_a_Waveform = 0;
     var osc_b_Waveform = 0;
+
+    var osc_a_oct = 1;
+    var osc_b_oct = 1;
 
     var pitch_attack = 0;
     var pitch_decay = 0.69;
@@ -29,6 +32,83 @@
     var filter_attack = 0;
     var filter_decay = 0.69;
     var filter_amount = 1;
+
+    var lfo_speed = 0;
+    var lfo_depth = 0;
+
+    var freqMod = 1;
+
+    var reverbGain = 0;
+
+    var lastStepElement = $(".seqSteps")[0];
+
+
+    var drift_amount = 0;
+
+    $("#output_reverb_sld").on("input", function () {
+
+        reverbGain = Number($(this).val());
+        reverb_gain.gain.setValueAtTime(reverbGain, audioContext.currentTime);
+
+    });
+
+
+    
+    $("#filter_FREQ_MOD_sld").on("change", function () {
+        freqMod = Number($(this).val());
+        
+    });
+
+
+    $("#filter_LFO_DEPTH_sld").on("change", function () {
+        lfo_depth = Number($(this).val());
+        lfo_gain.gain.setValueAtTime(lfo_depth, audioContext.currentTime);
+    });
+
+    $("#filter_LFO_SPEED_sld").on("change", function () {
+        lfo_speed = Number($(this).val());
+        lfo.frequency.setValueAtTime(lfo_speed, audioContext.currentTime);
+    });
+
+
+
+    $("#drift_sld").on("change", function () {
+        drift_amount = Number($(this).val());
+    });
+
+    $(".octBtn").click(function () {
+
+        currentBtnId = $(this).attr("id");
+
+        if (currentBtnId == "osc_a_oct_btn") {
+            osc_a_oct++;
+            if (osc_a_oct>10) {
+                osc_a_oct = 1;
+            }
+        } else {
+            osc_b_oct++;
+            if (osc_b_oct > 10) {
+                osc_b_oct = 1;
+            }
+        }
+
+
+
+
+    });
+
+
+    $(".octRstBtn").click(function () {
+        currentBtnId = $(this).attr("id");
+        if (currentBtnId == "osc_a_oct_Reset_btn") {
+            osc_a_oct=1;
+        } else {
+            osc_b_oct = 1;
+        }
+    });
+
+
+
 
     //change shape button click
     $(".shapeBtn").click(function () {
@@ -57,6 +137,8 @@
         } else {
             osc_b_Waveform = currentOscWaveform;
         }
+
+        $(this).html(waveformz[currentOscWaveform]);
 
     });
 
@@ -112,8 +194,8 @@
         }
 
         seqSpeed = Number(401 - $(this).val());
-        stopSeq();
-        startSeq();
+        //stopSeq();
+        //startSeq();
 
     });
 
@@ -195,6 +277,11 @@
 
 
 
+    //reverbStuff....
+
+
+
+
 
 
     //every seq tik function
@@ -212,21 +299,21 @@
         pitchDelta = (seqSpeed * pitch_decay) + pitch_attack;
 
 
-        osc_a.frequency.setValueAtTime((currentVal - detuneAmount), audioContext.currentTime);
-        osc_b.frequency.setValueAtTime((currentVal + detuneAmount), audioContext.currentTime);
+        osc_a.frequency.setValueAtTime((currentVal - detuneAmount) * osc_a_oct, audioContext.currentTime);
+        osc_b.frequency.setValueAtTime((currentVal + detuneAmount) * osc_b_oct, audioContext.currentTime);
 
         osc_sub.frequency.setValueAtTime((currentVal / 2) , audioContext.currentTime);
 
 
-        osc_a.frequency.linearRampToValueAtTime((currentVal - detuneAmount) * pitch_amount, audioContext.currentTime + pitch_attack);
-        osc_b.frequency.linearRampToValueAtTime((currentVal + detuneAmount) * pitch_amount, audioContext.currentTime + pitch_attack);
+        osc_a.frequency.linearRampToValueAtTime(((currentVal - detuneAmount) * pitch_amount) * osc_a_oct , audioContext.currentTime + pitch_attack);
+        osc_b.frequency.linearRampToValueAtTime(((currentVal + detuneAmount) * pitch_amount) * osc_b_oct , audioContext.currentTime + pitch_attack);
 
-        osc_sub.frequency.linearRampToValueAtTime((currentVal / 2) * pitch_amount, audioContext.currentTime + pitch_attack);
+        osc_sub.frequency.linearRampToValueAtTime(((currentVal / 2) * pitch_amount), audioContext.currentTime + pitch_attack);
 
 
 
-        osc_a.frequency.linearRampToValueAtTime((currentVal - detuneAmount) , audioContext.currentTime + (pitchDelta / 800));
-        osc_b.frequency.linearRampToValueAtTime((currentVal + detuneAmount) , audioContext.currentTime + (pitchDelta / 800));
+        osc_a.frequency.linearRampToValueAtTime((currentVal - detuneAmount) * osc_a_oct  , audioContext.currentTime + (pitchDelta / 800));
+        osc_b.frequency.linearRampToValueAtTime((currentVal + detuneAmount) * osc_b_oct  , audioContext.currentTime + (pitchDelta / 800));
 
         osc_sub.frequency.linearRampToValueAtTime((currentVal / 2) , audioContext.currentTime + (pitchDelta / 800));
 
@@ -248,22 +335,43 @@
 
         filterDelta = (seqSpeed * filter_decay);
 
-        biquadFilter.frequency.linearRampToValueAtTime(filter_amount * filter_cutoff, (audioContext.currentTime + filter_attack));
+
+
+        biquadFilter.frequency.linearRampToValueAtTime((filter_amount * filter_cutoff) * freqMod, (audioContext.currentTime + filter_attack));
         biquadFilter.frequency.linearRampToValueAtTime(filter_cutoff, audioContext.currentTime + (filterDelta / 900));
 
+
+        if (isPlaying) {
+            setTimeout(stepFunction, getNextStepTime());
+        }
+
+        lastStepElement.style.backgroundColor = "white";
+        $(".seqSteps")[currentStep].style.backgroundColor = "gold";
+        lastStepElement = $(".seqSteps")[currentStep];
+   
 
     }
 
     //start the seq
     function startSeq() {
         console.log("start seq");
-        boatInterval = setInterval(stepFunction, seqSpeed);
+        //boatInterval = setInterval(stepFunction, seqSpeed);
+
+        setTimeout(stepFunction, getNextStepTime());
+
+
     }
+
+    function getNextStepTime() {
+        rnd = Math.random() * drift_amount;
+        return seqSpeed + rnd;
+    }
+
 
     //stop the seq
     function stopSeq() {
         console.log("stop seq");
-        clearInterval(boatInterval);
+        //clearInterval(boatInterval);
     }
 
     //the waveshaper (distortion) function
@@ -281,6 +389,30 @@
         return curve;
     };
 
+    //the reverb convolotion buffer function
+    function base64ToArrayBuffer(base64) {
+        var base64_fix = _arrayBufferToBase64(base64);
+        var binaryString = window.atob(base64_fix);
+        var len = binaryString.length;
+        var bytes = new Uint8Array(len);
+        for (var i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes.buffer;
+    }
+    //dont ask... this is the reverb halper to convert the file data to base 64
+    function _arrayBufferToBase64(buffer) {
+        var binary = '';
+        var bytes = new Uint8Array(buffer);
+        var len = bytes.byteLength;
+        for (var i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return window.btoa(binary);
+    }
+
+
+
     //audio setup
     $('#allowAudio').click(function () {
         audioContext.resume().then(() => {
@@ -290,18 +422,42 @@
             osc_b = audioContext.createOscillator();
             osc_sub = audioContext.createOscillator();
 
+            lfo = audioContext.createOscillator();
+            lfo.frequency.setValueAtTime(lfo_speed, audioContext.currentTime);
+
             osc_gain_a = audioContext.createGain();
             osc_gain_b = audioContext.createGain();
             osc_gain_sub = audioContext.createGain();
+
+            lfo_gain = audioContext.createGain();
+
             master_gain = audioContext.createGain();
 
             osc_gain_a.gain.setValueAtTime(0, audioContext.currentTime);
             osc_gain_b.gain.setValueAtTime(0, audioContext.currentTime);
             osc_gain_sub.gain.setValueAtTime(0, audioContext.currentTime);
 
+            lfo_gain.gain.setValueAtTime(lfo_depth, audioContext.currentTime);
+
+            
+
             biquadFilter = audioContext.createBiquadFilter();
             biquadFilter.type = "lowpass";
             biquadFilter.frequency.value = 6000;
+
+
+
+            //here
+            lfo.connect(lfo_gain);
+            lfo_gain.connect(biquadFilter.frequency);
+
+            reverb = audioContext.createConvolver();
+            var reverbSoundArrayBuffer = base64ToArrayBuffer(reverbImpolseResponse);
+            audioContext.decodeAudioData(reverbSoundArrayBuffer, function (buffer) {reverb.buffer = buffer;},function (e) {alert('Reverb Error ' + e.err);});
+
+            reverb_gain = audioContext.createGain();
+            //me!
+            reverb_gain.gain.setValueAtTime(reverbGain, audioContext.currentTime);
 
             distortion = audioContext.createWaveShaper();
             distortion.oversample = '4x';
@@ -316,12 +472,11 @@
 
             master_gain.gain.setValueAtTime(0.3, audioContext.currentTime);
 
-
-
-
             osc_a.start();
             osc_b.start();
             osc_sub.start();
+
+            lfo.start();
 
             osc_a.connect(osc_gain_a);
             osc_b.connect(osc_gain_b);
@@ -331,7 +486,10 @@
             osc_gain_b.connect(biquadFilter);
             osc_gain_sub.connect(biquadFilter);
 
+            biquadFilter.connect(reverb);
             biquadFilter.connect(distortion);
+            reverb.connect(reverb_gain);
+            reverb_gain.connect(distortion);
 
             distortion.connect(compressor);
 
@@ -339,20 +497,44 @@
 
             master_gain.connect(audioContext.destination);
 
+
+            $("#allowAudio").hide();
+            $("#synthMask").hide();
+
+
         });
     });
 
     var audioContext = new (window.AudioContext || window.webkitAudioContext);
 
+    var request = new XMLHttpRequest();
+
+    request.open('GET', 'irHall.ogg', true);
+    request.responseType = 'arraybuffer';
+    request.send();
+    request.onload = function () {
+        reverbImpolseResponse = request.response;
+    }
+
+
+    var reverbImpolseResponse = null;
     var osc_a = null;
     var osc_b = null;
     var osc_sub = null;
+
+    var lfo = null;
 
     var osc_gain_a = null;
     var osc_gain_b = null;
     var osc_gain_sub = null;
 
+    var lfo_gain = null;
+
     var biquadFilter = null;
+
+    var reverb = null;
+    var reverb_gain = null;
+
 
     var distortion = null;
 

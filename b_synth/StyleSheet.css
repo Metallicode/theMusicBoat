@@ -1,4 +1,22 @@
-﻿#synthBody {
+﻿body {
+    background-color: DimGray;
+    font-family:monospace;
+
+}
+
+#synthMask {
+    width: 1000px;
+    height: 500px;
+    background-color: aquamarine;
+    opacity: .6;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: center;
+    font-size: 2em;
+}
+
+#synthBody {
     padding: 10px;
     background-image: url("boatsynthskin.png");
     width: 1000px;
@@ -13,6 +31,7 @@
         outline: none;
         padding: 3px;
         border-radius: 3px;
+        
     }
 
     #synthBody button:active {
@@ -36,7 +55,15 @@ input[type=range]::-webkit-slider-runnable-track {
     background: #161616;
 }
 
+#osc_a_oct_Reset_btn {
+    left: 113px;
+    top: 187px;
+}
 
+#osc_b_oct_Reset_btn {
+    left: 193px;
+    top: 187px;
+}
 
 
 
@@ -46,8 +73,9 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 #osc_a_shape_btn {
-    left: 75px;
+    left: 68px;
     top: 212px;
+    width: 60px;
 }
 
 
@@ -62,14 +90,16 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 #osc_b_shape_btn {
-    left: 155px;
+    left: 148px;
     top: 212px;
+    width:60px;
 }
 
 
 #osc_b_vol_sld {
     left: 155px;
     top: 110px;
+ 
 }
 
 #osc_sub_vol_sld {
@@ -119,14 +149,39 @@ input[type=range]::-webkit-slider-runnable-track {
     top: 300px;
 }
 
-#filter_env_sld {
-    left: 400px;
+#filter_LFO_DEPTH_sld {
+    left: 252px;
+    top: 300px;
+}
+
+#linksElement{
+    font-size:3em;
+}
+
+#allowAudio {
+    font-size: 3em;
+}
+
+#filter_LFO_SPEED_sld {
+    left: 310px;
+    top: 300px;
+}
+
+#filter_FREQ_MOD_sld {
+    left: 375px;
     top: 300px;
 }
 
 
+#filter_env_sld {
+    left: 462px;
+    top: 300px;
+}
+
+
+
 #filter_env_atk_sld {
-    left: 490px;
+    left: 518px;
     top: 300px;
 }
 
@@ -135,25 +190,29 @@ input[type=range]::-webkit-slider-runnable-track {
     top: 300px;
 }
 
+#output_reverb_sld {
+    left: 705px;
+    top: 300px;
+}
 
 #output_dist_sld {
-    left: 750px;
+    left: 786px;
     top: 300px;
 }
 
 #output_comp_atk_sld {
-    left: 830px;
+    left: 865px;
     top: 300px;
 }
 
 #output_vol_sld {
-    left: 910px;
+    left: 945px;
     top: 300px;
 }
 
 
 .seqSteps {
-    width: 90px;
+    width: 87px;
     font-size:1.6em;
 }
 
@@ -166,15 +225,23 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 #speed_sld {
-    left: 840px;
+    left: 845px;
+    top: 436px;
+}
+
+
+
+#drift_sld {
+    left: 893px;
     top: 436px;
 }
 
 #transport_btn {
-    left: 905px;
+    left: 948px;
     top: 455px;
     height: 38px;
-    width: 70px;
+    width: 50px;
+
 }
 
 

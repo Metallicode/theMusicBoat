@@ -14,12 +14,14 @@
             <div id="osc_section">
 
                 <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_a_vol_sld" />
-                <button id="osc_a_oct_btn"><strong>oct</strong></button>
-                <button class="shapeBtn" id="osc_a_shape_btn"><strong>shape</strong></button>
+                <button class="octBtn" id="osc_a_oct_btn"><strong>OT</strong></button>
+                <button class="octRstBtn" id="osc_a_oct_Reset_btn"><strong>$</strong></button>
+                <button class="shapeBtn" id="osc_a_shape_btn"><strong>sine</strong></button>
 
                 <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_b_vol_sld" />
-                <button id="osc_b_oct_btn"><strong>oct</strong></button>
-                <button class="shapeBtn" id="osc_b_shape_btn"><strong>shape</strong></button>
+                <button class="octBtn" id="osc_b_oct_btn"><strong>OT</strong></button>
+                <button class="octRstBtn" id="osc_b_oct_Reset_btn"><strong>$</strong></button>
+                <button class="shapeBtn" id="osc_b_shape_btn"><strong>sine</strong></button>
 
                 <input class="synthSld" type="range" min="0.0" value="1.0" step="0.001" max="1.0" id="osc_sub_vol_sld" />
 
@@ -49,9 +51,18 @@
 
                 <input class="synthSld" type="range" min="0.0001" max="6000" value="6000" id="filter_cut_sld" />
 
-                <input class="synthSld" type="range" min="0.0001" step="0.01" max="30" value="0" id="filter_q_sld" />
+                <input class="synthSld" type="range" min="0.0001" step="0.01" max="26" value="0" id="filter_q_sld" />
 
-                <input class="synthSld" type="range" min="0.001" value="1.0" step="0.001" max="3" id="filter_env_sld" list="tickmarks2"/>
+
+                <input class="synthSld" type="range" min="0" step="1" max="1500" value="0" id="filter_LFO_DEPTH_sld" />
+                <input class="synthSld" type="range" min="0.1" step="0.1" max="10" value="0.1" id="filter_LFO_SPEED_sld" />
+                <input class="synthSld" type="range" min="0" step="0.01" max="2" value="1" id="filter_FREQ_MOD_sld" list="tickmarks4" />
+                <datalist id="tickmarks4">
+                    <option value="1">
+
+                </datalist>
+
+                <input class="synthSld" type="range" min="0.001" value="1.0" step="0.001" max="3" id="filter_env_sld" list="tickmarks2" />
                 <datalist id="tickmarks2">
                     <option value="1">
 
@@ -64,8 +75,8 @@
             </div>
 
             <div id="output_section">
-
-                <input class="synthSld" type="range"  min="1" value="1" step="0.1" max="10" id="output_dist_sld" />
+                <input class="synthSld" type="range" min="0" value="0" step="0.01" max="1" id="output_reverb_sld" />
+                <input class="synthSld" type="range" min="1" value="1" step="0.1" max="10" id="output_dist_sld" />
                 <input class="synthSld" min="-50" value="-1" step="1" max="-1" type="range" id="output_comp_atk_sld" />
                 <input class="synthSld" min="0.0" value="0.3" step="0.001" max="0.3" type="range" id="output_vol_sld" />
             </div>
@@ -82,8 +93,12 @@
                     <input id="seq_step_8" placeholder="0" class="seqSteps" step-data="7" type="number" />
                 </div>
 
-                <input type="range" id="speed_sld" min="20" max="400" step="1" />
+                <input type="range" id="speed_sld" min="20" max="300" step="1" />
+                <input type="range" id="drift_sld" value="0" min="-50" max="50" step="0.1" list="tickmarks3" />
+                <datalist id="tickmarks3">
+                    <option value="0">
 
+                </datalist>
                 <button id="transport_btn">Start</button>
 
             </div>
@@ -91,14 +106,24 @@
 
         </div>
 
-        <button id="allowAudio">ok</button>
+        <div id="synthMask">
+            <br />
+            <br />
+            <br />
+            <h3>sponsored by:</h3>
+            <h1> <a target="_blank" href="https://www.youtube.com/channel/UCgF28qGPeu_Tdfq0vTIMW8w?sub_confirmation=1">Metallicode</a></h1>
+            <h2>(activate synth)</h2>
+        </div>
+
+        <button id="allowAudio">activate synth</button>
+        <hr/>
+        <div id="linksElement">
+            <a target="_blank" href="https://www.youtube.com/channel/UCgF28qGPeu_Tdfq0vTIMW8w">Metallicode</a>
+            <a target="_blank" href="https://github.com/Metallicode/theMusicBoat">MusicBoat</a>
+        </div>
 
 
     </div>
-
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
