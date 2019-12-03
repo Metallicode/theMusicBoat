@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>OverTonez</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="StyleSheet.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="allContent">
+        <div id="pageTitle">
+            <h1>OverTonez</h1>
+        </div>
+        <div id="transport">
+
+            <h3>
+                main volume
+            </h3>
+            <input class="fader" id="mainVolume" type="range" min="0.0" step="0.01" max="1.0" value="0.7" />
+
+            <h3>
+                main pitch <b id="hertzHolder">100</b> Hz
+            </h3>
+            <input class="fader" id="mainPitch" type="range" min="10" step="1" max="800" value="100" list="tickmarks" />
+            <datalist id=tickmarks>
+                <option>32</option>
+                <option>36</option>
+                <option>41</option>
+                <option>43</option>
+                <option>49</option>
+                <option>55</option>
+                <option>61</option>
+                <option>65</option>
+                <option>73</option>
+                <option>82</option>
+                <option>87</option>
+                <option>98</option>
+                <option>110</option>
+                <option>123</option>
+                <option>130</option>
+                <option>146</option>
+                <option>164</option>
+                <option>174</option>
+                <option>196</option>
+                <option>220</option>
+                <option>246</option>
+                <option>261</option>
+                <option>293</option>
+                <option>329</option>
+                <option>349</option>
+                <option>375</option>
+
+            </datalist>
+            <br />
+            <h3>
+                detune
+            </h3>
+            <input class="fader" id="detune" type="range" min="0" step="0.0001" max="2" value="0" />
+            <br />
+
+
+
+        </div>
+        <div>
+            <br />
+            <hr />
+        </div>
+        <div id="mixer">
+
+            <div id="faders">
+                <div class="fader">
+                    <input name="r1" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.9" />
+                    <label for="r1">
+                        X1
+                    </label>
+                </div>
+
+                <div class="fader">
+                    <input name="r2" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.8" />
+                    <label for="r2">
+                        X2
+                    </label>
+                </div>
+
+                <div class="fader">
+                    <input name="r3" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r3">
+                        X3
+                    </label>
+                </div>
+
+                <div class="fader">
+                    <input name="r4" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r4">
+                        X4
+                    </label>
+                </div>
+
+                <div class="fader">
+                    <input name="r5" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r5">
+                        X5
+                    </label>
+                </div>
+
+                <div class="fader">
+                    <input name="r6" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r6">
+                        X6
+                    </label>
+                </div>
+
+                <div class="fader">
+                    <input name="r7" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r7">
+                        X7
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r8" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r8">
+                        X8
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r9" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r9">
+                        X9
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r10" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r10">
+                        X10
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r11" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r11">
+                        X11
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r12" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r12">
+                        X12
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r13" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r13">
+                        X13
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r14" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r14">
+                        X14
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r15" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="0.7" />
+                    <label for="r15">
+                        X15
+                    </label>
+                </div>
+                <div class="fader">
+                    <input name="r16" class="aFader" type="range" orient=vertical min="0.0" value="0.0" step="0.01" max="1.0" />
+                    <label for="r16">
+                        X16
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+
+            <button class="btn" id="clrbutton">clear</button>
+            <button class="btn" id="scalebutton">scale A</button>
+            <button class="btn" id="nicebutton">make nice</button>
+            <button class="btn" id="rndbutton">random harminics</button>
+            <button class="btn" id="wavbutton">wavform</button>
+        </div>
+
+        <div class="js-oscilloscope oscilloscope"></div>
+
+		
+		<input id="unmuteButton" type="button" value="Start Audio"/> 
+			
+		<br/>
+			
+			
+        <div>http://sambego.github.io/oscilloscope.js/</div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="oscilloscope.js"></script>
+    <script src="JavaScript.js"></script>
+</body>
+
+</html>

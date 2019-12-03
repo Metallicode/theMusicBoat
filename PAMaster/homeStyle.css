@@ -1,0 +1,57 @@
+﻿body {
+    background-image: url('Images/EMPTY-STAGE-22.jpg');
+    background-size:100% 75%;
+    background-repeat:no-repeat;
+    margin:0;
+}
+.content {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: 450px; 
+}
+
+.footer, .content:after {
+  height: 290px; 
+}
+.footer {
+  background-color: saddlebrown;
+  padding:40px;
+}
+
+#graphEq{
+    background: orange;
+     height: 220px; 
+     border: solid black 2px;
+     border-radius:10px;
+     padding:10px;
+}
+
+.eqFaderContainer{
+
+    float:left;
+   text-align:center;
+    width:50px;
+    padding:5px;
+    margin:5px;
+}
+
+.fader{
+        background-color:Highlight;
+        width:20px;
+        height:130px;
+        position:relative;
+        margin-left:25%;
+}
+
+.fader:hover{
+        background-color:olivedrab;
+
+}
+
+#stan{
+
+    position:absolute;
+    z-index:-2;
+    top:360px;
+    left:200px;
+}
